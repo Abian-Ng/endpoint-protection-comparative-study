@@ -1,0 +1,19 @@
+================================================================================
+EXPERIMENTAL ARTIFACT: RESPONSE TIME MONITORING METHODOLOGY VIA WINDOWS ETW
+================================================================================
+
+To calculate the Mean Response Time (MRT) metric without relying on application-level
+clock hooks, execution sequences leverage native Windows Event Tracing (ETW).
+
+Core Trace Providers Monitored during Malware Execution:
+1. Microsoft-Windows-Kernel-Process (GUID: {22FB2CD6-0E17-40BB-B1B8-38EC5BCAE647})
+   - Triggers on Opcode 1 (Process Start / Execution Initiation)
+   
+2. Microsoft-Windows-Threat-Intelligence (GUID: {F4E1897C-B3D5-464A-AC0F-EE4374D821C3})
+   - Triggers on execution blocks, memory injection overrides, or driver hooks.
+
+Data Pipeline Timing calculation:
+[Process Start Capture Time] ---> [Malware Payload Activity] ---> [EPS Mitigation Event Flag]
+       (Time t0)                                                       (Time t1)
+
+Absolute Response Time (Delta) = t1 - t0 (calculated via native Performance Counters)
