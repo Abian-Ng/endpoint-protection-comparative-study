@@ -19,6 +19,8 @@ An empirical evaluation framework designed to quantify the detection capability,
 To run the validation pass of the automated classification pipeline engine, establish your environment credentials and execute:
 ```bash
 python pipeline/replicate_pipeline.py
+
+```
 📝 Authors and Research Affiliation
 Efi, Asianabasi Enefiok (efiasianabasi@gmail.com)
 
