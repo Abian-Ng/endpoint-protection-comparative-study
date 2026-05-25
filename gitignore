@@ -1,0 +1,14 @@
+# Ignore local downloaded malware payloads and zips for repository safety
+malware_corpus/
+*.zip
+*.exe
+*.dll
+*.msi
+*.bat
+*.ps1_payload
+
+# Ignore local python runtime variables
+__pycache__/
+.pytest_cache/
+secrets.json
+.env
